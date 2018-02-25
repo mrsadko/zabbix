@@ -1,0 +1,22 @@
+- name: install zabbix package
+  apt:
+    update_cache: yes
+    deb: http://repo.zabbix.com/zabbix/3.4/debian/pool/main/z/zabbix-release/zabbix-release_3.4-1+stretch_all.deb
+- name: install zabbix package zabbix-server-mysql
+  apt:
+    update_cache: yes
+    install_recommends: yes
+    name: zabbix-server-mysql
+    state: present
+- name: install zabbix package zabbix-frontend-php
+  apt:
+    update_cache: yes
+    install_recommends: yes
+    name: zabbix-frontend-php
+    state: present
+- name: install zabbix package zabbix-agent
+  apt:
+    update_cache: yes
+    install_recommends: yes
+    name: zabbix-agent
+    state: present

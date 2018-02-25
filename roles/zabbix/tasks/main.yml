@@ -1,6 +1,7 @@
----
-- name: chose a distribution
-  include_tasks: redhat.yml
-  when: ansible_os_platform|lower == 'redhat'
-  include_tasks: ubuntu.yml
-  when: ansible_os_platform|lower == 'redhat'
+- name: include ubntu.yml settings file
+  include_tasks: tasks/debian.yml
+  when: ansible_os_family|lower == "debian"
+
+- name: include redhat.yml settings file
+  include_tasks: tasks/redhat.yml
+  when: ansible_os_family|lower == "redhat"
